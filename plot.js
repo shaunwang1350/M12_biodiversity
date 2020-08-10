@@ -10,7 +10,9 @@ function init() {
             .text(sample)
             .property("value", sample);
         });
-    })}
+        buildCharts('940');
+        buildMetadata('940');
+    })};
     
 init();
 
@@ -74,7 +76,7 @@ function buildCharts(sample){
         var bar_labels = result.otu_labels;
         var bar_ids = [];
         for (ids of result.otu_ids) {
-            bar_ids.push(`UTO ${ids}`)
+            bar_ids.push(`OTU ${ids}`)
         };
 
         var trace = {
@@ -105,14 +107,15 @@ function buildCharts(sample){
             y: result.sample_values, 
             mode: "markers",
             marker: {
-                size:[5,10,20,30,40,50,60,70,80,90,100],
-                // color: ['rgb(0,0,255)', 'rgb(0,255,0)']
+                size: result.sample_values,
+                color: result.otu_ids,
+                text: result.otu_labels
             }
         };
         var data2 = [trace2];
 
         var layout2 = {
-            title: `UTOs for Subject ${result.id}`,
+            title: `OTUs for Subject ${result.id}`,
             xaxis: {title: 'OTU ID'}
         }
 

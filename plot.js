@@ -69,24 +69,25 @@ function buildCharts(sample){
         var resultArray = samples.filter((sampleObj => sampleObj.id == sample))
         var result = resultArray[0]
 
+
+        var bar_values = result.sample_values;
+        var bar_labels = result.otu_labels;
         var bar_ids = [];
         for (ids of result.otu_ids) {
             bar_ids.push(`UTO ${ids}`)
         };
-        console.log(bar_ids);
 
         var trace = {
-            x: result.sample_values, 
-            y: bar_ids,
+            x: bar_values.slice(0,10), 
+            y: bar_ids.slice(0,10),
             type: "bar",
             orientation: 'h',
             transforms: [
                 {type: 'sort', target: 'x', order: 'Ascending'}, 
                 // {type: 'aggregate', groups: 'x', aggregations:[{target: 'x', func: 'count', enabled: true}] }
             ],
-            text: result.otu_labels,
+            text: bar_labels.slice(0,10)
         };
-
 
         var data = [trace];
         var layout = {

@@ -45,17 +45,16 @@ function buildMetadata(sample) {
         gauge: {
             axis: {range: [null, 9], tickmode: "linear"},
             steps: [
-                // {range: [0,1], color: 'rgb(165,210,80)', line: {color: 'gray', width: 1}},
-                // {range: [1,2], color: 'rgb(160,215,70)', line: {color: 'gray', width: 1}},
-                // {range: [2,3], color: 'rgb(155,220,60)', line: {color: 'gray', width: 1}},
-                // {range: [3,4], color: 'rgb(150,225,50)', line: {color: 'gray', width: 1}},
-                // {range: [4,5], color: 'rgb(145,230,40)', line: {color: 'gray', width: 1}},
-                // {range: [5,6], color: 'rgb(140,235,30)', line: {color: 'gray', width: 1}},
-                // {range: [6,7], color: 'rgb(135,240,20)', line: {color: 'gray', width: 1}},
-                // {range: [7,8], color: 'rgb(130,245,10)', line: {color: 'gray', width: 1}},
-                // {range: [8,9], color: 'rgb(125,250,0)', line: {color: 'gray', width: 1}}
-                {range:[0,4], color: 'blue'},
-                {range:[5,9], color: 'green'}
+                {range: [0,1], color: 'rgb(165,210,80)', name: '0-1'},
+                {range: [1,2], color: 'rgb(160,215,70)', name: '1-2'},
+                {range: [2,3], color: 'rgb(155,220,60)', name: '2-3'},
+                {range: [3,4], color: 'rgb(150,225,50)', name: '3-4'},
+                {range: [4,5], color: 'rgb(145,230,40)', name: '4-5'},
+                {range: [5,6], color: 'rgb(140,235,30)', name: '5-6'},
+                {range: [6,7], color: 'rgb(135,240,20)', name: '6-7'},
+                {range: [7,8], color: 'rgb(130,245,10)', name: '7-8'},
+                {range: [8,9], color: 'rgb(125,250,0)', name: '8-9'}
+
 
             ]
         }
@@ -88,8 +87,7 @@ function buildCharts(sample){
             type: "bar",
             orientation: 'h',
             transforms: [
-                {type: 'sort', target: 'x', order: 'Ascending'}, 
-                // {type: 'aggregate', groups: 'x', aggregations:[{target: 'x', func: 'count', enabled: true}] }
+                {type: 'sort', target: 'x', order: 'Ascending'}
             ],
             text: bar_labels.slice(0,10)
         };

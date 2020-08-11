@@ -96,6 +96,7 @@ function buildCharts(sample){
             title: `Top 10 Bacterial Species for Subject ${result.id}`,
             xaxis: {title: ""},
             yaxis: {title: "OTU IDs"},
+            text: bar_ids,
             hovermode: "closest",
             hoverlabel: { bgcolor: "#FFF" },
             legend: {orientation: 'h', y: -0.3},
@@ -108,9 +109,9 @@ function buildCharts(sample){
             mode: "markers",
             marker: {
                 size: result.sample_values,
-                color: result.otu_ids,
-                text: result.otu_labels
-            }
+                color: result.otu_ids
+            },
+            text: bar_ids
         };
         var data2 = [trace2];
 
